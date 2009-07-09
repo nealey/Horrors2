@@ -1,7 +1,6 @@
-#! /usr/bin/python3
+#! /usr/bin/env python3
 
 import optparse
-import xml.dom.minidom
 import xml.etree.ElementTree
 import re
 
@@ -59,16 +58,16 @@ def main():
         f = open(a, encoding='iso-8859-1')
         parser = xml.etree.ElementTree.XMLTreeBuilder()
         parser.entity.update(nbsp=" ",
-                             rsaquo=">",
-                             lsquo="`",
-                             rsquo="'",
-                             ldquo="``",
-                             rdquo="''",
+                             lsaquo="<", rsaquo=">",
+                             lsquo="`",  rsquo="'",
+                             ldquo="``", rdquo="''",
                              hellip="{\\ldots}",
                              ndash="---",
                              mdash="---",
                              iexcl="{\\!`}",
                              copy="{\\copyright}",
+                             eacute="\\'e",
+                             ccedil="\\,c",
                              )
         doc = xml.etree.ElementTree.parse(f, parser)
         doc_to_ltx(doc)
