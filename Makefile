@@ -7,3 +7,6 @@ horrors2.dvi: horrors2.ltx $(PAGES)
 horrors2.pdf: horrors2.ltx $(PAGES)
 	pdflatex $<
 	pdflatex $<
+
+clean:
+	rm -f *aux *dvi *log
