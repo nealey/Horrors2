@@ -1,12 +1,17 @@
-\documentclass{book}
+\documentclass[draft]{book}
 
+\usepackage[papersize={397pt,614pt}]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{anttor}
 \usepackage{url}
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\usepackage[labelformat=empty]{caption}
 
 \title{Horrors 2: Clever Title Here}
 \author{The Something Awful Forums}
 
+% For specifying author
 \newcommand{\by}[1]{
   \vspace{-20pt}
   \begin{flushleft}
@@ -14,7 +19,6 @@
   \end{flushleft}
   \vspace{30pt}
 }
-
 
 \begin{document}
 \maketitle
@@ -65,7 +69,7 @@ copy, can be found at \url{http://gitorious.org/horrors2/book}.
 \hbox{}
 \vfill
 
-This is a pre-release copy of {\em Horrors 2}, a freely-redistributable
+This is a pre-release copy of {\em Horrors 2}, a freely redistributable
 ebook.  This copy is made available for proofreading; a final copy will
 be published for anyone to download, along with instructions on how to
 print it and bind it into a real hardcover or paperback book.  For the
@@ -212,7 +216,7 @@ and/or blood.  Stay strong, pukers.
 \include{stories/Orgasmo.Make_My_Da}
 %\include{stories/kerimeton.White}
 \include{stories/Zahgaegun.The_Pus_St}
-%\include{stories/Bonaventure.Horrider_R}
+\include{stories/Bonaventure.Horrider_R}
 \include{stories/Akbar.Wicked_Wor}
 \include{stories/Swanky.Gold_Ribbo}
 %\include{stories/Cruo.The_Smoker}

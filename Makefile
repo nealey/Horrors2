@@ -1,9 +1,5 @@
 STORIES = stories/*.tex
 
-horrors2.dvi: horrors2.ltx $(STORIES)
-	latex $<
-	latex $<
-
 horrors2.pdf: horrors2.ltx $(STORIES)
 	pdflatex $<
 	pdflatex $<
