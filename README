@@ -1,0 +1,14 @@
+A note to commiters
+-------------------
+
+You probably have git set up with your real name and email address.  If
+you would like to change those to something else, remember to do so
+*before* you commit anything.  You'll want to change the file
+
+    .git/config
+
+Here's what's at the start of mine:
+
+    [user]
+            name = "cruft"
+            email = "cruft@mailinator.com"
