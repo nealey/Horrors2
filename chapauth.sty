@@ -1,0 +1,38 @@
+\def\chapauth#1{\gdef\@chapauth{#1}}
+\def\@chapauth{}
+
+\def\chapimg#1#2{\gdef\@chapartist{#1}\gdef\@chapimg{#2}}
+\gdef\@chapimg{}
+\gdef\@chapartist{\@empty}
+
+\def\@makechapterhead#1{%
+  \ifx \@chapimg \@empty
+    \vspace*{50\p@}%
+      {\parindent \z@ \raggedright \normalfont
+      \ifnum \c@secnumdepth >\m@ne
+        \if@mainmatter
+          \huge\bfseries \@chapapp\space \thechapter
+          \par\nobreak
+          \vskip 20\p@
+        \fi
+      \fi
+      \interlinepenalty\@M
+      \Huge \bfseries #1\par\nobreak
+      \ifx\@chapauth\@empty
+        % Nothing
+      \else
+        \vskip 10\p@
+        \Large \bfseries by \@chapauth\par\nobreak
+      \fi
+      \vskip 40\p@
+      }
+  \else
+    \thispagestyle{empty}
+    \hbox{}\vfill
+    \@chapimg\par\nobreak
+    \hfill\small Artwork by \@chapartist\par\nobreak
+    \vfill\hbox{}
+  \fi
+  \chapauth{}
+  \chapimg{}{}
+}

@@ -1,4 +1,4 @@
-\documentclass[draft,10pt]{book}
+\documentclass[10pt]{book}
 
 \usepackage[papersize={397pt,614pt}]{geometry}
 \usepackage[T1]{fontenc}
@@ -7,6 +7,7 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{hyperref}
 \usepackage[labelformat=empty]{caption}
+\usepackage{chapauth}
 
 \title{Horrors 2: Clever Title Here}
 \author{The Something Awful Forums}
@@ -16,15 +17,6 @@
   Ba-var-ius
   hid-eous
   mos-qui-toes
-}
-
-% For specifying author
-\newcommand{\by}[1]{
-  \vspace{-20pt}
-  \begin{flushleft}
-    {\large by #1}
-  \end{flushleft}
-  \vspace{30pt}
 }
 
 \begin{document}
@@ -104,6 +96,10 @@ and/or blood.  Stay strong, pukers.
 
 \newpage
 \pagenumbering{arabic}
+
+\part{Selections from {\em Horrors}}
+\include{stories/BenBiddick.The_Horrid}
+\include{stories/BenBiddick.The_Barn}
 
 \part{Bavarious Reasons}
 \include{stories/Batmanuel.The_Strang}
