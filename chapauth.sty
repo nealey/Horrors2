@@ -29,8 +29,11 @@
   \else
     \thispagestyle{empty}
     \hbox{}\vfill
-    \@chapimg\par\nobreak
-    \hfill\small Artwork by \@chapartist\par\nobreak
+    \noindent
+    \includegraphics[width=\textwidth]{\@chapimg}
+    \par\nobreak
+    \hfill Artwork by \@chapartist
+    \par\nobreak
     \vfill\hbox{}
   \fi
   \chapauth{}
