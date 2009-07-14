@@ -1,7 +1,8 @@
 SUPPORT = chapauth.sty
 STORIES = stories/*.tex
+ART = art/*
 
-horrors2.pdf: horrors2.ltx $(SUPPORT) $(STORIES)
+horrors2.pdf: horrors2.ltx $(SUPPORT) $(STORIES) $(ART)
 	pdflatex $<
 	pdflatex $<
 
