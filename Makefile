@@ -1,4 +1,4 @@
-SUPPORT = chapauth.sty
+SUPPORT = chapauth.sty praise.tex
 STORIES = stories/*.tex
 ART = art/*
 
