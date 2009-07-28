@@ -1,4 +1,4 @@
-\documentclass[10pt]{book}
+\documentclass[openany,10pt]{book}
 
 %  textwidth = 3.832849 inches; 1150 dots @ 300dpi; 2300@600; 4600@1200
 % textheight = 5.936073 inches; 1780 dots @ 300dpi; 3560@600; 7120@1200
@@ -15,8 +15,6 @@
 \TPGrid[\topmargin,\oddsidemargin]{8}{10}
 \setcounter{secnumdepth}{-1}
 
-\newcommand{\gun}{\includegraphics[height=1em]{art/gun.png}}
-
 \newcommand{\illustration}[3]{
   \begin{figure}[b]
     \includegraphics[width=\textwidth]{#3}
@@ -24,7 +22,7 @@
   \end{figure}
 }
 
-\title{Horrors 2: Clever Title Here}
+\title{Horrors 2}
 \author{The Something Awful Forums}
 
 \hyphenation{
@@ -33,6 +31,9 @@
   hid-eous
   mos-qui-toes
 }
+
+\renewcommand\listfigurename{Illustrations}
+
 
 \begin{document}
 \maketitle
@@ -93,10 +94,46 @@ and/or blood.  Stay strong, pukers.
 \hbox{}
 
 \tableofcontents
-
+\listoffigures
 
 \newpage
 \pagenumbering{arabic}
+
+\chapter{Foreword}
+Horror is a genre that has entranced the public for ages. Most of us
+have fond memories of huddling around a copy of {\em Scary Stories to
+  Tell in the Dark}, pretending we weren't scared, daring each other to
+look at certain pictures. We've stayed up late watching horror movies,
+fearing every creak was something coming to get us. The peak enjoyment
+of horror usually falls around the preteen years, when scary movies are
+still scary and parents are more lenient with reading choices. During a
+time when most are just starting to get into horror, one man started
+writing horror.
+
+That man is Ben Biddick. Ben started writing horror when he was twelve,
+and was first published when he was thirteen. His compilation, Horrors,
+had a very limited print run. Due to this, very few people found out
+about it. It remained off of bestseller lists. It received no critical
+acclaim. As it turns out, Horrors was simply eighteen years ahead of its
+time.
+
+Now, thanks to the internet, Ben's masterwork has received a second
+wind. In fact, many people were inspired by Ben's work. This
+compilation is the result of that inspiration. With Ben's permission,
+we’ve included a few of his most terrifying tales. What follows are a
+series of stories that aim to establish the same unique brand of horror
+as the master of terror himself. These stories emulate, derive, or pay
+homage to the classic Biddickian stories from Horrors. Many use Ben's
+beloved tragic hero, Luke Bavarious. Many touch upon Ben's belief that
+children are worthy of attention and respect. All attempt to convey a
+sense of horror that only a thirteen year old can craft.
+
+Hopefully these stories are something you'll tell around campfires for
+generations to come. Hopefully they're something that will haunt
+you. Hopefully they're something awful---something so awful they'll
+inspire you to take up the torch of Biddickian horror as well.
+
+--- rinski, July 2009
 
 \part{Selections from {\em Horrors}}
 \include{stories/BenBiddick.The_Horrid}

@@ -1,0 +1,16 @@
+#! /bin/sh
+
+sigsize=$1; shift
+printf "$sigsize:"
+
+comma=
+for page in $(seq 0 2 $(expr $(expr $sigsize - 1 ) / 2)); do
+    face=$(expr $sigsize - $page - 1)
+    printf "%s%d(1w,0h)L+%d(1w,.5h)L," "$comma" $face $page
+    opage=$(expr $page + 1)
+    oface=$(expr $face - 1)
+    printf "%d(1w,0h)L+%d(1w,.5h)L" $opage $oface
+    comma=,
+done
+
+printf "\n"
