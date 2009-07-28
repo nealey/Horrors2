@@ -1,11 +1,23 @@
+\chapter{Thanks}
+
+When BenBiddick showed up, with enough of a sense of humor to not only
+laugh along with us, but also endorse our fan-fiction to the point of
+judging winners, it was feel-good thread of the year for me.  Combined
+with Melodywise introducing me to beekeeping, and the revelation of
+something called a ``neti pot'', I felt like I'd gotten way more than my
+ten bucks out of my Something Awful Forums account.  I coughed up
+another ten for a platinum upgrade (which allows a user to send and
+recieve private messages), and began working on putting together an
+actual book.
+
 Thanks to all the goons who wrote the stories in the first place, and
 then went through the hassle of going to a new thread to accept the
-license.
+license terms.
 
 Thanks to AYBraham for giving the idea momentum in the form of a
 contest.
 
-Thanks to BirdZerk! for helping me with some of the initial conversion
+Thanks to BirdZerk!\ for helping me with some of the initial conversion
 from the forum to LaTeX.
 
 Thanks to Hamelin for suggesting I list the authors who still needed to
@@ -16,11 +28,11 @@ Thanks to benitocereno for reminding me about the "any similarities"
 disclaimer, which probably has no legal weight whatsoever, but looks
 cool.
 
-Thanks to Ridgley_Fan for submitting *three* git patches, one of which
-had the cool idea of putting a Beretta image on the winning stories
-somewhere.
+Thanks to Ridgley\_Fan for submitting {\em three} git patches, one of
+which contained the cool idea of putting a Beretta image on the winning
+stories somewhere.
 
-Thanks to Discount_Bees, for doing so freaking much artwork (8 pieces!)
+Thanks to Discount\_Bees, for doing so freaking much artwork (8 pieces!)
 
 Thanks to Part of Everything, for doing a lot of artwork too (6 pieces),
 and PMing me so much that I was unable to forget that real people were
@@ -32,4 +44,8 @@ Last but most, thanks to Ben Biddick for inspiring 117 crappy authors
 and one crappy bookmaker to come together for a great thing.  Terrible,
 yes; but great.
 
-- cruft, July 2009
+--- cruft, July 2009
+
+% Local variables:
+% mode: latex
+% End:
