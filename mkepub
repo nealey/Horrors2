@@ -1,0 +1,73 @@
+#! /bin/sh
+
+cat horrors2.xhtml > epub/book.xhtml
+rm -rf epub/art
+mkdir epub/art
+cp art/*.png art/*.jpg epub/art
+cp style.css epub/
+
+
+
+cd epub
+echo -n application/epub+zip > mimetype
+cat >MANIFEST <<EOF
+mimetype
+META-INF/container.xml
+content.opf
+EOF
+cat > content.opf <<EOF
+<?xml version="1.0"?>
+<package version="2.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId">
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+   <dc:title>Horrors 2</dc:title>
+   <dc:language>en</dc:language>
+   <dc:identifier id="BookId" opf:scheme="title">Horrors2</dc:identifier>
+   <dc:creator opf:file-as="Something Awful Forums" opf:role="aut">The Something Awful Forums</dc:creator>
+</metadata>
+ 
+<manifest>
+EOF
+find . -type f | sed 's#./##' | while read fn; do
+    b=$(basename $fn)
+    id=thing$count
+    count=$(expr $count + 1)
+    case "$b" in
+        META-INF/*|MANIFEST|mimetype|content.opf)
+            continue
+            ;;
+        book.xhtml)
+            id=book
+            type=application/xhtml+xml
+            ;;
+        *.css)
+            type=image/css
+            ;;
+        book.ncx)
+            id=ncx
+            ;;
+        *.png)
+            type=image/png
+            ;;
+        *.jpg)
+            type=image/jpeg
+            ;;
+        *.svg)
+            type=image/svg+xml
+            ;;
+        *.otf)
+            type=application/octet-stream
+            ;;
+    esac
+    echo "<item id=\"$id\" href=\"$fn\" media-type=\"$type\"/>" >> content.opf
+    echo $fn >> MANIFEST
+done
+cat >> content.opf <<EOF
+</manifest>
+ 
+<spine toc="ncx">
+   <itemref idref="book" />
+</spine>
+ </package>
+EOF
+
+xargs zip -Xr9D ../book.epub < MANIFEST

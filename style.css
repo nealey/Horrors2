@@ -1,3 +1,20 @@
+@font-face {
+    font-family: "Antykwa Torunska";
+    src: url(AntykwaTorunska-Regular.otf);
+}
+
+@font-face {
+    font-family: "Antykwa Torunska";
+    font-style: italic;
+    src: url(AntykwaTorunska-Italic.otf);
+}
+
+@font-face {
+    font-family: "Antykwa Torunska";
+    font-weight: bold;
+    src: url(AntykwaTorunska-Bold.otf);
+}
+
 body {
     max-width: 40em;
     font-family: Antykwa Torunska;
