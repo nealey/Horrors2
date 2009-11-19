@@ -93,9 +93,10 @@ def art(artist, url, title=None):
     print('<div class="art">')
     print('<img src="%s" alt="%s" />' % (url, alt))
     if title:
-        print('<em>%s</em> by %s' % (title, artist))
+        atxt = '<em>%s</em> by %s' % (title, artist)
     else:
-        print(alt)
+        atxt = alt
+    print('<p class="artist">%s</p>' % (atxt))
     print('</div>')
 
 outbuf = ''
@@ -198,6 +199,22 @@ for l in f:
     if l.startswith('\\begin{document'):
         break
 
+print('''<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC
+  "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Horrors 2</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+
+  <body>
+''')
+
 for l in f:
     outline(l)
 
+print('''</body>
+</html>
+''')
