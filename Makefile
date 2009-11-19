@@ -26,8 +26,11 @@ horrors2.mdwn: horrors2.ltx $(STORIES)
 	./toxhtml.py > $@
 
 horrors2.xhtml: horrors2.mdwn head.xhtml foot.xhtml
-	cat head.xhtml > $@
 	markdown $< >> $@
+
+book.xhtml: horrors2.xhtml
+	cat head.xhtml > $@
+	cat $< >> $@
 	cat foot.xhtml >> $@
 
 book.epub: horrors2.xhtml

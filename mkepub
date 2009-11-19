@@ -1,9 +1,35 @@
 #! /bin/sh
 
-cat horrors2.xhtml > epub/book.xhtml
+kersplit () {
+    first=1
+    # Add an extra line to chop
+    parts=$( (cat horrors2.xhtml; echo) | sed -n '/class="part/=;$=')
+    for part in $parts; do
+        fn=$1; shift
+        cat head.xhtml > $fn
+        last=$(expr $part - 1)
+        sed -n "${first},${last}p" horrors2.xhtml >> $fn
+        cat foot.xhtml >> $fn
+        first=$part
+    done
+}
+
+xhtml="epub/book.xhtml epub/part1.xhtml epub/part2.xhtml epub/part3.xhtml epub/part4.xhtml epub/part5.xhtml epub/part6.xhtml epub/part7.xhtml"
+kersplit $xhtml
+
+
 rm -rf epub/art
-mkdir epub/art
-cp art/*.png art/*.jpg epub/art
+if true; then
+    mkdir epub/art
+    for i in art/*.png; do
+        echo $i
+        pngtopnm $i | pnmscale -xysize 800 600 | pnmtopng > epub/$i
+    done
+    for i in art/*.jpg; do
+        echo $i
+        jpegtopnm $i | pnmscale -xysize 800 600 | pnmtojpeg > epub/$i
+    done
+fi
 cp style.css epub/
 
 
@@ -27,17 +53,19 @@ cat > content.opf <<EOF
  
 <manifest>
 EOF
+rm spine
 find . -type f | sed 's#./##' | while read fn; do
     b=$(basename $fn)
     id=thing$count
     count=$(expr $count + 1)
     case "$b" in
-        META-INF/*|MANIFEST|mimetype|content.opf)
+        META-INF/*|MANIFEST|mimetype|content.opf|spine)
             continue
             ;;
-        book.xhtml)
-            id=book
+        *.xhtml)
+            id=$(basename $b .xhtml)
             type=application/xhtml+xml
+            echo $id >> spine
             ;;
         *.css)
             type=image/css
@@ -65,7 +93,13 @@ cat >> content.opf <<EOF
 </manifest>
  
 <spine toc="ncx">
-   <itemref idref="book" />
+EOF
+sort spine | while read id; do
+    # "book" sorts before "part*" :)
+    echo "  <itemref idref=\"$id\" />" >> content.opf
+done
+rm spine
+cat >> content.opf <<EOF
 </spine>
  </package>
 EOF
